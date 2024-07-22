@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BudgetEase</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h3>BudgetEase</h3>
+        <div class="container">
+            <!-- Total Budget Section -->
+            <div class="total-amount-container">
+                <label for="total-amount">Total Budget</label>
+                <input type="number" id="total-amount" placeholder="Enter your budget" />
+                <button id="total-amount-button" class="submit" aria-label="Set Budget">Set Budget</button>
+                <p id="budget-error" class="error hide">Please enter a valid amount</p>
+            </div>
+
+            <!-- Add Expense Section -->
+            <div class="sub-container">
+                <div class="user-amount-container">
+                    <label for="user-amount">Add Expense</label>
+                    <input type="number" id="user-amount" placeholder="Amount" />
+                    <input type="text" id="product-title" placeholder="Expense Title" />
+                    <input type="hidden" id="update-id" />
+                    <button id="check-amount" class="submit" aria-label="Add Expense">Add Expense</button>
+                    <p id="product-title-error" class="error hide">Please fill in all fields</p>
+                </div>
+
+                <!-- Output Container -->
+                <div class="output-container">
+                    <p>Total Budget: <span id="amount">0</span></p>
+                    <p>Expenditure: <span id="expenditure-value">0</span></p>
+                    <p>Balance: <span id="balance-amount">0</span></p>
+                    <p>Expenditure Percentage: <span id="expenditure-percentage">0%</span></p>
+                    <p>Balance Percentage: <span id="balance-percentage">0%</span></p>
+                </div>
+            </div>
+
+            <!-- Expense List -->
+            <div id="list" class="list">
+                <!-- Example Expense Item -->
+                <div class="sublist-content" data-id="expense1">
+                    <div class="expense-details">
+                        <span class="product">Expense Title</span>
+                        <span class="amount">$100</span>
+                    </div>
+                    <div class="icons-container">
+                        <button class="edit" aria-label="Edit">✎</button>
+                        <button class="delete" aria-label="Delete">🗑️</button>
+                    </div>
+                </div>
+                <!-- More expense items will be dynamically added here -->
+            </div>
+
+            <!-- Reminder Section -->
+            <div id="reminder-section">
+                <input type="date" id="shopping-reminder" />
+                <button id="set-reminder" class="submit" aria-label="Set Reminder">Set Reminder</button>
+                <div id="reminder-message" class="hide"></div>
+            </div>
+
+            <!-- Pie Chart Section -->
+            <div class="pie">
+                <div class="pie-chart-container">
+                    <canvas id="pie-chart"></canvas>
+                </div>
+                <button id="reset-button" class="submit" aria-label="Reset">Reset All Expenses</button>
+                <p class="dev">Developed by: Christine Mwaniki</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
