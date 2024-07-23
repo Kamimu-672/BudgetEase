@@ -32,14 +32,12 @@ body {
 
 .wrapper {
   width: 90%;
-  font-size: 16px;
   max-width: 43.75em;
   margin: 1em auto;
   animation: fadeIn 0.5s ease-in-out;
 }
 
 .container {
-  width: 100%;
   background-color: var(--white-color);
   padding: 20px;
   border-radius: 8px;
@@ -47,7 +45,6 @@ body {
 }
 
 .sub-container {
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3em;
@@ -72,7 +69,6 @@ body {
 }
 
 .container input {
-  display: block;
   width: 100%;
   padding: 0.6em 0.3em;
   border: 1px solid #d0d0d0;
@@ -87,34 +83,19 @@ body {
 }
 
 .total-amount-container,
-.user-amount-container {
-  background-color: var(--container-color);
-  color: var(--button-color);
-  padding: 1.25em 0.9em;
-  border-radius: 0.3em;
-  box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
-}
-
+.user-amount-container,
 .output-container {
   background-color: var(--container-color);
-  color: var(--bg-color);
+  color: var(--button-color);
   border-radius: 0.3em;
   box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
-  font-weight: 500;
+  padding: 1.25em 0.9em;
   margin: 2em 0;
-  padding: 1.2em;
 }
 
-.output-container p {
-  font-weight: 500;
-  margin-bottom: 0.6em;
-  color: var(--button-color);
-}
-
+.output-container p,
 .output-container span {
-  display: block;
-  text-align: center;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--button-color);
 }
 
@@ -128,7 +109,6 @@ body {
   margin-top: 0.8em;
   background-color: var(--button-color);
   border: none;
-  outline: none;
   color: var(--white-color);
   padding: 0.6em 1.2em;
   border-radius: 0.3em;
@@ -143,13 +123,12 @@ body {
 .list {
   background-color: var(--container-color);
   padding: 1.8em 1.2em;
-  box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
   border-radius: 0.6em;
   margin-top: 1em;
+  box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
 }
 
 .sublist-content {
-  width: 100%;
   border-left: 0.3em solid var(--container-color);
   margin-bottom: 0.6em;
   padding: 0.5em 1em;
@@ -200,7 +179,6 @@ body {
   cursor: pointer;
   margin-left: 0.5em;
   border: none;
-  color: var(--button-color);
   font-size: 1.2em;
 }
 
@@ -220,7 +198,6 @@ body {
 /* Pie Chart Styling */
 .pie {
   display: flex;
-  padding-top: 10px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -239,13 +216,7 @@ body {
   height: 300px;
 }
 
-/* Expense and Reminder Sections */
-#expense-section,
-#reminder-section {
+/* Expense Section */
+#expense-section {
   margin: 20px 0;
-}
-
-#reminder-message {
-  margin-top: 10px;
-  color: green;
 }
