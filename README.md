@@ -26,81 +26,79 @@ BudgetEase is a web-based application designed to help users manage their expens
    git clone https://github.com/yourusername/BudgetEase.git
    cd BudgetEase
 
-Install Dependencies
+## Install Dependencies
 
-npm install
+. npm install
 
-Create a .env File
+## Create a .env File
 
-Create a .env file in the root directory and add your MongoDB connection URI:
-MONGO_URI=your_mongo_connection_string
-PORT=3000
+- Create a .env file in the root directory and add your MongoDB connection URI:
+  MONGO_URI=your_mongo_connection_string
+  PORT=3000
 
-Start the Server
+## Start the Server
 
-node server.js
+. node server.js
 
-The application will run on http://localhost:3000
+- The application will run on http://localhost:3000
 
-Usage
+## Usage
 
-Set Total Budget: 
+. Set Total Budget: Enter your total budget amount and click "Set Budget".
 
-Enter your total budget amount and click "Set Budget".
+. Add Expense: Enter the expense amount and title, then click "Add Expense".
 
-Add Expense: Enter the expense amount and title, then click "Add Expense".
+. Edit Expense: Click the edit button next to an expense item to update its deta  ils.
 
-Edit Expense: Click the edit button next to an expense item to update its details.
+. Delete Expense: Click the delete button next to an expense item to remove it.
 
-Delete Expense: Click the delete button next to an expense item to remove it.
+. Reset All Expenses: Click "Reset All Expenses" to clear all data and reset the  budget.
 
-Reset All Expenses: Click "Reset All Expenses" to clear all data and reset the budget.
+## API Endpoints
 
-API Endpoints
+- GET /api/expenses: Retrieve all expenses.
 
-GET /api/expenses: Retrieve all expenses.
+- POST /api/expenses: Add a new expense.
 
-POST /api/expenses: Add a new expense.
+- PUT /api/expenses/: Update an existing expense.
 
-PUT /api/expenses/: Update an existing expense.
+- DELETE /api/expenses/: Delete an expense by ID.
 
-DELETE /api/expenses/: Delete an expense by ID.
+- DELETE /api/expenses: Delete all expenses.
 
-DELETE /api/expenses: Delete all expenses.
+## Example Usage
 
-Example Usage
+. Set Budget
 
-Set Budget
+- Enter an amount in the "Total Budget" field and click "Set Budget".
 
-Enter an amount in the "Total Budget" field and click "Set Budget".
+## Add Expense
 
-Add Expense
+- Enter the amount and title of the expense, then click "Add Expense".
 
-Enter the amount and title of the expense, then click "Add Expense".
+## Edit/Delete Expenses
 
-Edit/Delete Expenses
+- Use the edit or delete buttons next to each expense item to manage them.
 
-Use the edit or delete buttons next to each expense item to manage them.
+## View Pie Chart
 
-View Pie Chart
+. The pie chart updates dynamically based on the expenses and budget.
 
-The pie chart updates dynamically based on the expenses and budget.
+## Contributing
 
-Contributing
+- If you would like to contribute to BudgetEase, please fork the repository and   submit a pull request. Contributions are welcome!
 
-If you would like to contribute to BudgetEase, please fork the repository and submit a pull request. Contributions are welcome!
+## Acknowledgements
 
-Acknowledgements
+- Chart.js: For the dynamic pie chart visualization.
 
-Chart.js: For the dynamic pie chart visualization.
+- MongoDB: For database management.
 
-MongoDB: For database management.
+- Express.js: For building the backend API.
 
-Express.js: For building the backend API.
+## Contact
 
-Contact
-
-Developed by Christine Mwaniki.
+-  Developed by Christine Mwaniki.
 
 
 
