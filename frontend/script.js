@@ -24,6 +24,22 @@ document.addEventListener('DOMContentLoaded', () => {
     balance: '#FF9F40'
   };
 
+  // Fetch expenses from server on load
+  const fetchExpenses = async () => {
+    try {
+      const response = await fetch('/api/expenses');
+      const data = await response.json();
+      expenses = data.reduce((acc, expense) => {
+        acc[expense.title.toLowerCase()] = expense.amount;
+        return acc;
+      }, {});
+      renderExpenseList();
+      updateTotals();
+    } catch (error) {
+      console.error('Error fetching expenses:', error);
+    }
+  };
+
   const updateChart = () => {
     const ctx = pieChartCanvas.getContext('2d');
     const data = {
@@ -80,16 +96,28 @@ document.addEventListener('DOMContentLoaded', () => {
     updateChart();
   };
 
-  const addExpense = () => {
+  const addExpense = async () => {
     const title = productTitleInput.value.trim().toLowerCase();
     const amount = parseFloat(userAmountInput.value);
 
     if (title && amount && !isNaN(amount)) {
-      expenses[title] = (expenses[title] || 0) + amount;
-      renderExpenseList();
-      updateTotals();
-      productTitleInput.value = '';
-      userAmountInput.value = '';
+      try {
+        const response = await fetch('/api/expenses', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ title, amount })
+        });
+        const newExpense = await response.json();
+        expenses[title] = (expenses[title] || 0) + amount;
+        renderExpenseList();
+        updateTotals();
+        productTitleInput.value = '';
+        userAmountInput.value = '';
+      } catch (error) {
+        console.error('Error adding expense:', error);
+      }
     }
   };
 
@@ -117,24 +145,45 @@ document.addEventListener('DOMContentLoaded', () => {
     addEventListenersToButtons(); // Re-add event listeners after rendering
   };
 
-  const handleEdit = (title) => {
+  const handleEdit = async (title) => {
     const newTitle = prompt('Edit expense title:', title);
     if (newTitle !== null && newTitle.trim()) {
       const newAmount = parseFloat(prompt('Enter new amount:', expenses[title].toFixed(2)));
       if (!isNaN(newAmount) && newAmount >= 0) {
-        delete expenses[title];
-        expenses[newTitle.trim().toLowerCase()] = newAmount;
-        renderExpenseList();
-        updateTotals();
+        try {
+          const expenseId = Object.keys(expenses).find(key => key === title);
+          const response = await fetch(`/api/expenses/${expenseId}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ title: newTitle.trim().toLowerCase(), amount: newAmount })
+          });
+          const updatedExpense = await response.json();
+          delete expenses[title];
+          expenses[newTitle.trim().toLowerCase()] = newAmount;
+          renderExpenseList();
+          updateTotals();
+        } catch (error) {
+          console.error('Error editing expense:', error);
+        }
       }
     }
   };
 
-  const handleDelete = (title) => {
+  const handleDelete = async (title) => {
     if (confirm(`Are you sure you want to delete the expense: ${title}?`)) {
-      delete expenses[title];
-      renderExpenseList();
-      updateTotals();
+      try {
+        const expenseId = Object.keys(expenses).find(key => key === title);
+        await fetch(`/api/expenses/${expenseId}`, {
+          method: 'DELETE'
+        });
+        delete expenses[title];
+        renderExpenseList();
+        updateTotals();
+      } catch (error) {
+        console.error('Error deleting expense:', error);
+      }
     }
   };
 
@@ -154,15 +203,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const resetAll = () => {
+  const resetAll = async () => {
     if (confirm('Are you sure you want to reset all expenses?')) {
-      expenses = {};
-      totalBudget = 0;
-      totalAmountInput.value = '';
-      userAmountInput.value = '';
-      productTitleInput.value = '';
-      renderExpenseList();
-      updateTotals();
+      try {
+        await fetch('/api/expenses', {
+          method: 'DELETE'
+        });
+        expenses = {};
+        totalBudget = 0;
+        totalAmountInput.value = '';
+        userAmountInput.value = '';
+        productTitleInput.value = '';
+        renderExpenseList();
+        updateTotals();
+      } catch (error) {
+        console.error('Error resetting all expenses:', error);
+      }
     }
   };
 
@@ -176,5 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
   checkAmountButton.addEventListener('click', addExpense);
 
   resetButton.addEventListener('click', resetAll);
+
+  // Initial fetch of expenses
+  fetchExpenses();
 });
 
