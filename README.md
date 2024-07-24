@@ -28,7 +28,7 @@ BudgetEase is a web-based application designed to help users manage their expens
 
 ## Install Dependencies
 
-. npm install
+- npm install
 
 ## Create a .env File
 
@@ -38,21 +38,21 @@ BudgetEase is a web-based application designed to help users manage their expens
 
 ## Start the Server
 
-. node server.js
+- node server.js
 
 - The application will run on http://localhost:3000
 
 ## Usage
 
-. Set Total Budget: Enter your total budget amount and click "Set Budget".
+- Set Total Budget: Enter your total budget amount and click "Set Budget".
 
-. Add Expense: Enter the expense amount and title, then click "Add Expense".
+- Add Expense: Enter the expense amount and title, then click "Add Expense".
 
-. Edit Expense: Click the edit button next to an expense item to update its deta  ils.
+- Edit Expense: Click the edit button next to an expense item to update its deta  ils.
 
-. Delete Expense: Click the delete button next to an expense item to remove it.
+- Delete Expense: Click the delete button next to an expense item to remove it.
 
-. Reset All Expenses: Click "Reset All Expenses" to clear all data and reset the  budget.
+- Reset All Expenses: Click "Reset All Expenses" to clear all data and reset the  budget.
 
 ## API Endpoints
 
@@ -68,7 +68,7 @@ BudgetEase is a web-based application designed to help users manage their expens
 
 ## Example Usage
 
-. Set Budget
+- Set Budget
 
 - Enter an amount in the "Total Budget" field and click "Set Budget".
 
@@ -82,7 +82,7 @@ BudgetEase is a web-based application designed to help users manage their expens
 
 ## View Pie Chart
 
-. The pie chart updates dynamically based on the expenses and budget.
+- The pie chart updates dynamically based on the expenses and budget.
 
 ## Contributing
 
