@@ -1,50 +1,85 @@
- BudgetEase project
-.Description
+# BudgetEase
 
--BudgetEase is a web application designed to help users manage their expenses an
- d track their budget effectively. The application allows users to set a total b udget, add and manage expenses, view expenditure and balance, and visualize the data through a dynamically updating pie chart.
+## Overview
 
-.Installation
+BudgetEase is a web-based application designed to help users manage their expenses and track their budget efficiently. The application provides features to set a total budget, add and manage expenses, and visualize spending through a dynamic pie chart. It uses MongoDB for data storage and Chart.js for charting.
 
--To set up and run the BudgetEase application locally, follow these steps:
+## Features
 
-.Clone the repository:
+- **Total Budget Management**: Set and update your total budget.
+- **Expense Management**: Add, edit, and delete expenses.
+- **Dynamic Pie Chart**: Visualize your expenses and remaining balance with a responsive pie chart.
+- **Real-Time Updates**: See instant updates to your budget and expenses.
 
- git clone https://github.com/yourusername/BudgetEase.git
- cd BudgetEase
+## Technologies Used
 
-.Install dependencies:npm install
-.Start the application:node server.js
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Charting**: Chart.js
+- **Styling**: Custom CSS
 
-.The application is available at http://localhost:3000.
+## Installation
 
-.Usage
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/yourusername/BudgetEase.git
+   cd BudgetEase
 
-Set your total budget:
--Enter your total budget in the "Total Budget" section and click "Set Budget."
-Add expenses:
--Enter the expense amount and title in the "Add Expense" section and click "Add  Expense."
-Manage expenses:
--Edit: Click the edit button (✎) next to an expense to update its title or amou  nt.
--Delete: Click the delete button (🗑️) to remove an expense.
- View the pie chart:
- The pie chart will dynamically update to show the distribution of expenses and  the remaining balance.
-Reset all expenses:
+Install Dependencies
+npm install
 
--Click "Reset All Expenses" to clear all data and reset the application to zero.
+Create a .env File
+Create a .env file in the root directory and add your MongoDB connection URI:
+MONGO_URI=your_mongo_connection_string
+PORT=3000
 
-Features
+Start the Server
+node server.js
+The application will run on http://localhost:3000
 
-.Total Budget Management: 
--Set and update your total budget.
-.Expense Tracking: 
--Add, edit, and delete expenses.
-.Dynamic Pie Chart: 
--Visualize your expenses and balance with a responsive pie chart.
-.Expenditure and Balance Statistics:
--View total expenditure, balance, and percentage of expenditure relative to the  budget.
-.Reset Functionality:
--Clear all expenses and reset the application.
+Usage
+Set Total Budget: Enter your total budget amount and click "Set Budget".
+Add Expense: Enter the expense amount and title, then click "Add Expense".
+Edit Expense: Click the edit button next to an expense item to update its details.
+Delete Expense: Click the delete button next to an expense item to remove it.
+Reset All Expenses: Click "Reset All Expenses" to clear all data and reset the budget.
+
+API Endpoints
+GET /api/expenses: Retrieve all expenses.
+POST /api/expenses: Add a new expense.
+PUT /api/expenses/
+: Update an existing expense.
+DELETE /api/expenses/
+: Delete an expense by ID.
+DELETE /api/expenses: Delete all expenses.
+
+Example Usage
+Set Budget
+
+Enter an amount in the "Total Budget" field and click "Set Budget".
+Add Expense
+
+Enter the amount and title of the expense, then click "Add Expense".
+Edit/Delete Expenses
+
+Use the edit or delete buttons next to each expense item to manage them.
+View Pie Chart
+
+The pie chart updates dynamically based on the expenses and budget.
+Contributing
+If you would like to contribute to BudgetEase, please fork the repository and submit a pull request. Contributions are welcome!
+
+Acknowledgements
+Chart.js: For the dynamic pie chart visualization.
+MongoDB: For database management.
+Express.js: For building the backend API.
+
+Contact
+Developed by Christine Mwaniki.
+
+
+
 
 
 
