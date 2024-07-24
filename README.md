@@ -99,6 +99,7 @@ BudgetEase is a web-based application designed to help users manage their expens
 ## Contact
 
 -  Developed by Christine Mwaniki.
+   mwanichris@gmail.com 
 
 
 
